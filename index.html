@@ -4,17 +4,30 @@
 <meta charset="utf-8">
 <style>
 body{
-background:#000;
+background:#555;
+transition:1s;
+text-align:center;
+}
+#toggle{
+padding:20px;
+border-radius:10px;
+border:none;
+}
+h1{
+font-family:Avenir,sans-serif;
+color:#ddd;
 }
 </style>
 </head>
 <body>
+<br><br><br><br>
+<h1>L'histoire idéale</h1>
 <audio controls loop>
 <source src="expo.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
-</audio>
+</audio><br><br>
 <script src="https://richtr.github.io/NoSleep.js/dist/NoSleep.min.js"></script>
-<input type="button" id="toggle" value="Wake Lock is enabled">
+<input type="button" id="toggle" value="Wake Lock is disabled">
 <script>
 	var noSleep = new NoSleep();
 	var wakeLockEnabled = false;
@@ -29,7 +42,7 @@ Your browser does not support the audio element.
 	noSleep.disable(); // let the screen turn off.
 	wakeLockEnabled = false;
 	toggleEl.value = "Wake Lock is disabled";
-	document.body.style.backgroundColor = "#333";
+	document.body.style.backgroundColor = "#555";
 	}
 	}, false);
 </script>
