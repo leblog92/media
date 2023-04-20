@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+body{
+background:#000;
+}
+</style>
+</head>
+<body>
+<audio controls loop>
+<source src="expo.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<script src="https://richtr.github.io/NoSleep.js/dist/NoSleep.min.js"></script>
+<input type="button" id="toggle" value="Wake Lock is enabled">
+<script>
+	var noSleep = new NoSleep();
+	var wakeLockEnabled = false;
+	var toggleEl = document.querySelector("#toggle");
+	toggleEl.addEventListener('click', function() {
+	if (!wakeLockEnabled) {
+	noSleep.enable(); // keep the screen on!
+	wakeLockEnabled = true;
+	toggleEl.value = "Wake Lock is enabled";
+	document.body.style.backgroundColor = "#000";
+	} else {
+	noSleep.disable(); // let the screen turn off.
+	wakeLockEnabled = false;
+	toggleEl.value = "Wake Lock is disabled";
+	document.body.style.backgroundColor = "#333";
+	}
+	}, false);
+</script>
+</body>
+</html>
