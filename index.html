@@ -28,15 +28,17 @@ Your browser does not support the audio element.
 </audio>
 <br>
 <br>
-<img src="" width="50%" height="auto"/>
 <script src="https://richtr.github.io/NoSleep.js/dist/NoSleep.min.js"></script>
-<input type="button" id="toggle" value="Wake Lock is disabled">
+<input type="button" id="toggle" value="Wake Lock is disabled"><br><br>
+<img id="chg" src="img1.jpg" width="80%" height="auto"/>
 <script>
 	var noSleep = new NoSleep();
 	var wakeLockEnabled = false;
 	var toggleEl = document.querySelector("#toggle");
-	toggleEl.addEventListener('click', function() {
-	if (!wakeLockEnabled) {
+	var imgs=["img1.jpg","img2.jpg"];
+	var a=0;
+	toggleEl.addEventListener('click', function(){
+	if (!wakeLockEnabled){
 	noSleep.enable(); // keep the screen on!
 	wakeLockEnabled = true;
 	toggleEl.value = "Wake Lock is enabled";
@@ -48,6 +50,12 @@ Your browser does not support the audio element.
 	document.body.style.backgroundColor = "#555";
 	}
 	}, false);
+	function chgimg(){
+		if(a>1){a=0;}
+		document.getElementById("chg").setAttribute("src",imgs[a]);
+		a++;
+	}
+	setInterval(chgimg,5000);
 </script>
 </body>
 </html>
